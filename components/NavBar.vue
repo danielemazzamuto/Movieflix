@@ -36,6 +36,7 @@ h1 p {
   font-weight: bold;
   font-size: 2.5rem;
   text-shadow: 0 0 5px #000000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .button {
@@ -46,5 +47,6 @@ h1 p {
   border: none;
   border-radius: 0.25rem;
   font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
