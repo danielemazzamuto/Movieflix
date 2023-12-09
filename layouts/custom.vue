@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <NavBar :homepageLogo="true" :homepageButton="true"/> -->
+    <!-- <NavBar class="navbar" :customLogo="true" :customButton="true" /> -->
     <slot />
   </div>
 </template>

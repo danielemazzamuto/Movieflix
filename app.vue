@@ -1,10 +1,8 @@
 <template>
   <div>
-    <!-- <img id="hero" src="assets/hero.jpeg" alt=""> -->
-    <div id="hero"></div>
-    <NuxtLayout>
+    
       <NuxtPage />
-    </NuxtLayout>
+    
   </div>
 </template>
 
@@ -52,8 +50,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-html {
-  background: url("assets/hero.jpeg") no-repeat center center fixed;
-}
+
 
 </style>

@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Form />
+    <Form :customLogo="true" />
   </div>
 </template>

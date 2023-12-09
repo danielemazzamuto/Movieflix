@@ -1,5 +1,5 @@
 <template>
   <div>
-    <Hero />
+    <Hero :homepageLogo="true" />
   </div>
 </template>
