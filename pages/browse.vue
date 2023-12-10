@@ -5,7 +5,7 @@
 
       </div>
       <div class="movies">
-
+        {{ movies }}
       </div>
     </div>
   </div>
@@ -15,6 +15,9 @@
 definePageMeta({
   layout: 'custom'
 })
+
+const {data: movies, refresh} = await useFetchMovies();
+console.log(movies);
 </script>
 
 <style scoped>
