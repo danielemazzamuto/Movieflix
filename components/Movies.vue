@@ -1,8 +1,14 @@
 <template>
   <div>
-    <video autoplay muted loop id="preview">
-      <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
-    </video>
+    <!-- <video autoplay muted loop id="preview">
+      <source src="https://www.youtube.com/embed/n8TaX9y1MMU?autoplay=1" type="video/mp4">
+    </video> -->
+    <div class="video-background">
+      <iframe 
+      allow="autoplay; fullscreen"
+      src="https://www.youtube.com/embed/0L38Z9hIi5s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0"
+      frameborder="0"/>
+    </div>
     <div class="nav_container">
       <header>
         <h1>
@@ -19,22 +25,26 @@
 </template>
 
 <script setup>
-definePageMeta({
-  layout: 'custom'
-})
 
 const {data: movies, refresh} = await useFetchMovies();
 console.log(movies);
 </script>
 
 <style scoped>
-video {
+.video-background {
+  position: absolute;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+iframe {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 .nav_container {
   position: relative;
@@ -55,25 +65,25 @@ header {
   text-shadow: 0 0 5px #000000;
   font-family: Arial, Helvetica, sans-serif;
 }
-video:before,video:after{
-    content:'';
-    position:relative;
-    top:5%;
-    opacity:0.5;
+#container {
+  position: relative;
+  background-color: red;
+  top: 25rem;
+  left: -5;
+  width: 100%;
+  height: 100vh;
 }
-video:before{
-    top:0;
-    width:20%;
-    height:100%;
-    -moz-box-shadow: inset 0px 850px 500px -500px #000;
-    -webkit-box-shadow: inset 0px 850px 500px -500px #000;
-    -o-box-shadow: inset 0px 850px 500px -500px #000;
-    box-shadow: inset 0px 850px 500px -500px #000;
+
+@media (min-aspect-ratio: 16/9) {
+  .video-background iframe {
+    /* height = 100 * (9 / 16) = 56.25 */
+    height: 56.25vw;
+  }
 }
-video:after{
-    width:20%;
-    height:10%;
-    top:100%;
-    background:#000;
+@media (max-aspect-ratio: 16/9) {
+  .video-background iframe {
+    /* width = 100 / (9 / 16) = 177.777777 */
+    width: 177.78vh;
+  }
 }
 </style>

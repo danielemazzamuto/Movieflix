@@ -3,3 +3,4 @@
     <Movies :customLogo="true"/>
   </div>
 </template>
+
