@@ -1,13 +1,11 @@
 <template>
   <div>
-    <!-- <video autoplay muted loop id="preview">
-      <source src="https://www.youtube.com/embed/n8TaX9y1MMU?autoplay=1" type="video/mp4">
-    </video> -->
-    <div class="video-background">
-      <iframe 
+    <div class="main_hero">
+      <!-- <iframe 
       allow="autoplay; fullscreen"
       src="https://www.youtube.com/embed/0L38Z9hIi5s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0"
-      frameborder="0"/>
+      frameborder="0"/> -->
+      <img class="image_background" src="https://images2-wpc.corriereobjects.it/ozy7ThtK3UcnQI9gP4hI8RIOX-M=/fit-in/1200x800/style.corriere.it/assets/uploads/2023/05/fast-x-1200.jpg">
     </div>
     <div class="nav_container">
       <header>
@@ -16,9 +14,14 @@
         </h1>
       </header>
     </div>
-    <div id="container">
-      <div class="movies">
-       
+    <div class="hero_content">
+      <div class="popolari">
+       <p>I più popolari su Movieflix</p>
+       <div class="cards">
+        <card>image 1</card>
+        <card>image 2</card>
+        <card>image 3</card>
+       </div>
       </div>
     </div>
   </div>
@@ -31,21 +34,34 @@ console.log(movies);
 </script>
 
 <style scoped>
-.video-background {
+.main_hero {
   position: absolute;
-  overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: 70%;
 }
-iframe {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+.main_hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%,rgb(0, 0, 0) 95%);
 }
+.main_hero::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(0, 0, 0) 95%);
+}
+.image_background {
+  width: 100%;
+  height: 100%;
+}
+
 .nav_container {
   position: relative;
   top: 0;
@@ -65,25 +81,35 @@ header {
   text-shadow: 0 0 5px #000000;
   font-family: Arial, Helvetica, sans-serif;
 }
-#container {
+.hero_content {
   position: relative;
-  background-color: red;
+  background-color: rgb(0, 0, 0);
   top: 25rem;
   left: -5;
   width: 100%;
   height: 100vh;
 }
-
-@media (min-aspect-ratio: 16/9) {
-  .video-background iframe {
-    /* height = 100 * (9 / 16) = 56.25 */
-    height: 56.25vw;
-  }
+.popolari {
+  color: #fff;
+  position: relative;
+  bottom: 6%;
+  padding-left: 2rem
 }
-@media (max-aspect-ratio: 16/9) {
-  .video-background iframe {
-    /* width = 100 / (9 / 16) = 177.777777 */
-    width: 177.78vh;
+.popolari p {
+  font-size: 0.8rem
+}
+.popolari .cards {
+  display: flex;
+  gap:10px
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 600px) {
+  .main_hero {
+  height: 25rem;
+  }
+  .hero_content {
+  top: 20rem;
   }
 }
 </style>

@@ -89,7 +89,6 @@ form {
 h3 {
   color: #fff;
   font-size: 2.3rem;
-  font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 3rem;
 }
 input[type="email"] {
@@ -129,7 +128,6 @@ input[type="password"]:focus {
 .errorMessage {
   color: #fff;
   margin-top: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
 }
 /* NAVBAR */
 .nav_container {
@@ -148,7 +146,6 @@ header {
   font-weight: bold;
   font-size: 1.3rem;
   text-shadow: 0 0 5px #000000;
-  font-family: Arial, Helvetica, sans-serif;
 }
 /* MEDIA QUERY */
 @media screen and (max-width: 600px) {

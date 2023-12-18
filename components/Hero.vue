@@ -54,12 +54,11 @@ h2 {
   font-size: 2rem;
   color: #fff;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+
 }
 p {
   margin-top: 0.5rem;
   color: #b3b3b3;
-  font-family: Arial, Helvetica, sans-serif;
 }
 /* BACKGROUND IMAGE OPACITY */
 .bg-darkner {
@@ -106,7 +105,6 @@ header {
   border: none;
   border-radius: 0.2rem;
   font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
   transition: 0.3s
 }
 .button:hover {
