@@ -14,13 +14,35 @@
         </h1>
       </header>
     </div>
+    <div class="main_hero_content">
+      <div>
+        <h1>
+          <p>PLAY</p>
+        </h1>
+      </div>
+    </div>
     <div class="hero_content">
       <div class="popolari">
        <p>I più popolari su Movieflix</p>
-       <div class="cards">
-        <card>image 1</card>
-        <card>image 2</card>
-        <card>image 3</card>
+       <div class="popolari_cards">
+        <div class="popolari_card">
+          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
+          <div class="popolari_card_info"> 
+            like
+          </div>
+        </div>
+        <div class="popolari_card">
+          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
+          <div class="popolari_card_info"> 
+            like
+          </div>
+        </div>
+        <div class="popolari_card">
+          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
+          <div class="popolari_card_info"> 
+            like
+          </div>
+        </div>
        </div>
       </div>
     </div>
@@ -37,7 +59,7 @@ console.log(movies);
 .main_hero {
   position: absolute;
   width: 100vw;
-  height: 70%;
+  height: 700px;
 }
 .main_hero::after {
     content: "";
@@ -81,13 +103,21 @@ header {
   text-shadow: 0 0 5px #000000;
   font-family: Arial, Helvetica, sans-serif;
 }
+.main_hero_content {
+  position: relative;
+  color: #fff;
+  margin-left: 2rem;
+  top: 20rem;
+  left: 0;
+  width: 100%
+}
 .hero_content {
   position: relative;
   background-color: rgb(0, 0, 0);
-  top: 25rem;
-  left: -5;
+  top: 38rem;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  max-height: 900px;
 }
 .popolari {
   color: #fff;
@@ -98,9 +128,14 @@ header {
 .popolari p {
   font-size: 0.8rem
 }
-.popolari .cards {
+.popolari_cards {
   display: flex;
   gap:10px
+}
+.popolari_card_image {
+  width: 250px;
+  height: 200px;
+  margin: 1rem 1rem 1rem 0;
 }
 
 /* MEDIA QUERY */
@@ -109,7 +144,11 @@ header {
   height: 25rem;
   }
   .hero_content {
-  top: 20rem;
+  top: 19.5rem;
+  }
+  .main_hero_content{
+    z-index: 1;
+    top: 8rem
   }
 }
 </style>
