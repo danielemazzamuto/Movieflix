@@ -15,16 +15,28 @@
       </header>
     </div>
     <div class="main_hero_content">
-      <div>
-        <h1>
-          <p>PLAY</p>
-        </h1>
+      <div id="main_hero_title">
+        <h1>Title</h1>
+      </div>
+      <div class="main_hero_buttons">
+        <div>
+          <button id="main_hero_play_btn"><span>icon</span>Play</button>
+        </div>
+        <div>
+          <button id="main_hero_info_btn"><span>icon</span>More info</button>
+        </div>
       </div>
     </div>
     <div class="hero_content">
       <div class="popolari">
        <p>I più popolari su Movieflix</p>
        <div class="popolari_cards">
+        <div class="popolari_card">
+          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
+          <div class="popolari_card_info"> 
+            like
+          </div>
+        </div>
         <div class="popolari_card">
           <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
           <div class="popolari_card_info"> 
@@ -58,7 +70,7 @@ console.log(movies);
 <style scoped>
 .main_hero {
   position: absolute;
-  width: 100vw;
+  min-width: 100%;
   height: 700px;
 }
 .main_hero::after {
@@ -82,6 +94,7 @@ console.log(movies);
 .image_background {
   width: 100%;
   height: 100%;
+  background-size: cover;
 }
 
 .nav_container {
@@ -93,7 +106,7 @@ console.log(movies);
 header {
   display: flex;
   position: relative;
-  max-width: 95%;
+  max-width: 100%;
   padding: 1.5rem 2rem;
 }
 .customLogo {
@@ -106,15 +119,43 @@ header {
 .main_hero_content {
   position: relative;
   color: #fff;
-  margin-left: 2rem;
-  top: 20rem;
-  left: 0;
-  width: 100%
+  margin-left: 2rem; /* Use margin instead of left */
+  top: 16rem;
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.main_hero_buttons {
+  display: flex;
+  gap: 20px
+}
+.main_hero_content button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+#main_hero_play_btn {
+  border: none
+}
+#main_hero_play_btn:hover {
+  opacity: 0.8;
+}
+#main_hero_info_btn {
+  background: #444444;
+  border: none;
+  opacity: 0.8;
+  color: #ffffff;
+}
+#main_hero_info_btn:hover {
+  opacity: 0.7;
 }
 .hero_content {
   position: relative;
   background-color: rgb(0, 0, 0);
-  top: 38rem;
+  top: 30rem;
   left: 0;
   width: 100%;
   max-height: 900px;
@@ -123,32 +164,44 @@ header {
   color: #fff;
   position: relative;
   bottom: 6%;
-  padding-left: 2rem
+  padding: 0rem 2rem
 }
 .popolari p {
-  font-size: 0.8rem
+  font-size: 0.8rem;
+  font-weight: bold
 }
 .popolari_cards {
   display: flex;
-  gap:10px
+  justify-content: space-between;
+  gap: 10px
+}
+.popolari_card {
+  flex: 1 1 250px;
 }
 .popolari_card_image {
-  width: 250px;
-  height: 200px;
-  margin: 1rem 1rem 1rem 0;
+  width: 100%;
+  height: auto;
+  padding: 1rem 0rem;
+
 }
 
 /* MEDIA QUERY */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .main_hero {
   height: 25rem;
   }
   .hero_content {
-  top: 19.5rem;
+  top: 14.5rem;
   }
   .main_hero_content{
     z-index: 1;
     top: 8rem
+  }
+  .main_hero_content button {
+    font-size: 0.5rem
+  }
+  .main_hero_content {
+    gap: 3rem;
   }
 }
 </style>
