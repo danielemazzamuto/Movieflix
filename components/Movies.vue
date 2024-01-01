@@ -1,62 +1,57 @@
 <template>
   <div>
-    <div class="main_hero">
+    <div class="container">
       <!-- <iframe 
       allow="autoplay; fullscreen"
       src="https://www.youtube.com/embed/0L38Z9hIi5s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0"
       frameborder="0"/> -->
-      <img class="image_background" src="https://images2-wpc.corriereobjects.it/ozy7ThtK3UcnQI9gP4hI8RIOX-M=/fit-in/1200x800/style.corriere.it/assets/uploads/2023/05/fast-x-1200.jpg">
-    </div>
-    <div class="nav_container">
-      <header>
-        <h1>
-          <p class="customLogo">MOVIEFLIX</p>
-        </h1>
-      </header>
-    </div>
-    <div class="main_hero_content">
-      <div id="main_hero_title">
-        <h1>Title</h1>
+      <!-- HERO STARTS -->
+      <div class="hero">
+        <div class="navbar">
+          <div class="logo">MOVIEFLIX</div>
+          <div class="user-icon">User Icon</div>
+        </div>
+        <div class="gradient-overlay-top"></div>
+         <img class="hero-image" src="https://images.unsplash.com/photo-1703717101037-132d2c3fdd03?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero Image">
+        
+        <div class="hero-content">
+          <h1>Your Title</h1>
+          <p>Your description or other content...</p>
+        </div>
       </div>
-      <div class="main_hero_buttons">
+      <!-- HERO END -->
+      <!-- CARDS STARTS -->
+      <div class="cards-container">
+        <div class="gradient-overlay-bottom"></div>
         <div>
-          <button id="main_hero_play_btn"><span>icon</span>Play</button>
+          <p class="cards-category">Most Popular on Movieflix</p>
+          <div class="cards-container-popular">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+          </div>
         </div>
         <div>
-          <button id="main_hero_info_btn"><span>icon</span>More info</button>
+          <p class="cards-category">Most Popular on Movieflix</p>
+          <div class="cards-container-popular">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+          </div>
+        </div>
+        <div>
+          <p class="cards-category">Most Popular on Movieflix</p>
+          <div class="cards-container-popular">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="hero_content">
-      <div class="popolari">
-       <p>I più popolari su Movieflix</p>
-       <div class="popolari_cards">
-        <div class="popolari_card">
-          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
-          <div class="popolari_card_info"> 
-            like
-          </div>
-        </div>
-        <div class="popolari_card">
-          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
-          <div class="popolari_card_info"> 
-            like
-          </div>
-        </div>
-        <div class="popolari_card">
-          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
-          <div class="popolari_card_info"> 
-            like
-          </div>
-        </div>
-        <div class="popolari_card">
-          <img class="popolari_card_image" src="https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1610441807/post_images/new-york-1/Dyker-Heights1.jpg">
-          <div class="popolari_card_info"> 
-            like
-          </div>
-        </div>
-       </div>
-      </div>
+      <!-- CARDS END -->
     </div>
   </div>
 </template>
@@ -68,140 +63,111 @@ console.log(movies);
 </script>
 
 <style scoped>
-.main_hero {
-  position: absolute;
-  min-width: 100%;
-  height: 700px;
-}
-.main_hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%,rgb(0, 0, 0) 95%);
-}
-.main_hero::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(0, 0, 0) 95%);
-}
-.image_background {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
+.container {
+  position: relative;
 }
 
-.nav_container {
-  position: relative;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-}
-header {
-  display: flex;
-  position: relative;
-  max-width: 100%;
-  padding: 1.5rem 2rem;
-}
-.customLogo {
-  color: red;
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-shadow: 0 0 5px #000000;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.main_hero_content {
-  position: relative;
-  color: #fff;
-  margin-left: 2rem; /* Use margin instead of left */
-  top: 16rem;
-  width: calc(100% - 2rem);
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-.main_hero_buttons {
-  display: flex;
-  gap: 20px
-}
-.main_hero_content button {
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-#main_hero_play_btn {
-  border: none
-}
-#main_hero_play_btn:hover {
-  opacity: 0.8;
-}
-#main_hero_info_btn {
-  background: #444444;
-  border: none;
-  opacity: 0.8;
-  color: #ffffff;
-}
-#main_hero_info_btn:hover {
-  opacity: 0.7;
-}
-.hero_content {
-  position: relative;
-  background-color: rgb(0, 0, 0);
-  top: 30rem;
+/* Styles for the navbar */
+.navbar {
+  position: absolute;
+  top: 20px; /* Adjust top positioning */
   left: 0;
-  width: 100%;
-  max-height: 900px;
-}
-.popolari {
-  color: #fff;
-  position: relative;
-  bottom: 6%;
-  padding: 0rem 2rem
-}
-.popolari p {
-  font-size: 0.8rem;
-  font-weight: bold
-}
-.popolari_cards {
+  right: 0;
   display: flex;
   justify-content: space-between;
-  gap: 10px
+  align-items: center;
+  color: white; /* Color for navbar content */
+  padding: 10px 20px;
 }
-.popolari_card {
-  flex: 1 1 250px;
+
+/* Style for the logo */
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-.popolari_card_image {
+
+.hero {
+  position: relative;
   width: 100%;
-  height: auto;
-  padding: 1rem 0rem;
-
+  max-height: 90vh;
+  overflow: hidden;
 }
 
-/* MEDIA QUERY */
-@media screen and (max-width: 800px) {
-  .main_hero {
-  height: 25rem;
+/* Style for the hero image */
+.hero-image {
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: cover;
+}
+/* Gradient overlay for top fading effect */
+.gradient-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+/* Gradient overlay for bottom fading effect */
+.gradient-overlay-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 34%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+/* Style for the hero content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  text-align: center;
+  color: white;
+}
+
+/* Styles for the card container */
+.cards-container {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  margin-top: -5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+.cards-category {
+  /* display: flex; */
+  /* justify-content: start; */
+  padding-left: 5%;
+  padding-bottom: 20px;
+  padding-top: 20px
+}
+.cards-container-popular {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: no-wrap;
+  padding: 0 5%;
+}
+/* Styles for individual cards */
+.card {
+  z-index: 1;
+  width: 200px;
+  height: 150px;
+  border: 1px solid #ccc;
+  /* margin: 10px; */
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    height: 55vh;
   }
-  .hero_content {
-  top: 14.5rem;
-  }
-  .main_hero_content{
-    z-index: 1;
-    top: 8rem
-  }
-  .main_hero_content button {
-    font-size: 0.5rem
-  }
-  .main_hero_content {
-    gap: 3rem;
-  }
+  .hero-image {
+  min-height: 55vh;
+  max-height: 55vh;
+}
 }
 </style>
