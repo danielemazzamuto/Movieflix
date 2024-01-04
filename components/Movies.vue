@@ -12,10 +12,10 @@
           <div class="user-icon">User Icon</div>
         </div>
         <div class="gradient-overlay-top"></div>
-         <img class="hero-image" src="https://images.unsplash.com/photo-1703717101037-132d2c3fdd03?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero Image">
+         <img class="hero-image" :src="`https://www.themoviedb.org/t/p/w1920_and_h1080_multi_faces${movies.hero.poster_path}`" alt="Hero Image">
         
         <div class="hero-content">
-          <h1 class="hero-content-title">Your Title</h1>
+          <h1 class="hero-content-title">{{ movies.hero.title }}</h1>
           <div class="hero-content-buttons">
             <button class="hero-content-play"><span>►</span>Play</button>
             <button class="hero-content-moreinfo"><span>ⓘ</span>More info</button>
@@ -29,12 +29,22 @@
         <div>
           <p class="cards-category">Most Popular on Movieflix</p>
           <div class="cards-container-popular">
-            <div v-for="(card, index) in cards" :key="index" class="card" @mouseover="toggleHover(index, true)" @mouseleave="toggleHover(index, false)">
+            <div v-for="movie in movies.popular" :key="movie.id" class="card" @mouseover="toggleHover(movie.id, true)" @mouseleave="toggleHover(movie.id, false)">
               <div class="card-content">
-                <img class="card-image" src="https://images2-wpc.corriereobjects.it/ozy7ThtK3UcnQI9gP4hI8RIOX-M=/fit-in/1200x800/style.corriere.it/assets/uploads/2023/05/fast-x-1200.jpg" alt="">
-                <h3 class="card-title">Title card</h3>
+                <img class="card-image" :src="`https://www.themoviedb.org/t/p/w500${movie.poster_path}`" alt="">
+                <h3 class="card-title">{{ movie.title }}</h3>
               </div>
-              <div v-if="hoverState[index]">Like</div>
+              <div v-if="hoverState[movie.id]" class="card-movie-info-container">
+                <div class="card-movie-info-buttons">
+                  <i class="fa-solid fa-circle-play"></i>
+                  <div class="card-movie-info-like">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <i class="fa-regular fa-thumbs-down"></i>
+                  </div>
+                </div>
+                <div class="card-movie-info-year">2004</div>
+                <div class="card-movie-info-genre">Chrime - Drama - Thriller</div>
+              </div>
             </div>
           </div>
         </div>
@@ -63,18 +73,20 @@
 </template>
 
 <script setup>
+const randomNum = Math.floor(Math.random() * 17);
 
-const {data: movies, refresh} = await useFetchMovies();
-console.log(movies);
+const {data, refresh} = await useFetchMovies();
+const movies = ref({
+  hero: data.value.results[0],
+  popular: data.value.results.slice(0, 6),
+    voted: data.value.results.slice(6, 12),
+    featured: data.value.results.slice(12, 18),
+})
 
-const cards = ref([
-  { title: 'Card 1' },
-  { title: 'Card 2' },
-  { title: 'Card 3' },
-  // Add more card data as needed
-]);
-const hoverState = ref(Array(cards.value.length).fill(false));
-console.log(hoverState);
+console.log(randomNum);
+
+const hoverState = ref(Array(data.value.length).fill(false));
+
 function toggleHover(index, state) {
   hoverState.value[index] = state;
 }
@@ -217,7 +229,7 @@ function toggleHover(index, state) {
   z-index: 1;
   flex: 1 1 150px;
   min-height: 8.5rem;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   margin: 10px;
   transition: flex 0.3s, min-height 0.5s;
 }
@@ -233,10 +245,42 @@ function toggleHover(index, state) {
 }
 .card-title {
   position: absolute;
-  bottom: 30%;
-  left: 10%;
-  width: 100%;
-  font-size: 1.5rem;
+  bottom: 20%;
+  left: 1rem;
+  width: 60%;
+  font-size: 1em;
+  max-height: 80%;
+  text-shadow: 1px 1px 2px black;
+}
+
+.card-movie-info-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.2rem 1.2rem;
+  font-size: 2.2rem;
+}
+.card-movie-info-buttons .fa-circle-play{
+  cursor: pointer;
+}
+.card-movie-info-buttons .fa-thumbs-up{
+  cursor: pointer;
+}
+.card-movie-info-buttons .fa-thumbs-down{
+  cursor: pointer;
+}
+.card-movie-info-like {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem
+}
+.card-movie-info-year {
+  padding-left: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+.card-movie-info-genre {
+  padding-left: 1.2rem;
+  padding-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -248,7 +292,7 @@ function toggleHover(index, state) {
   max-height: 55vh;
   }
   .card-title {
-    display: none;
+    font-size: 1.2rem;
   }
 }
 </style>
