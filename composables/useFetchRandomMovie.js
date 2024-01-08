@@ -7,5 +7,7 @@ export default async () => {
       statusMessage: 'Unable to fetch movies',
     })
   }
-  return {data, refresh}
+  const randomNumber = Math.floor(Math.random() * 18);
+  const randomMovie = data.value.results[randomNumber];
+  return {randomMovie, refresh}
 }
