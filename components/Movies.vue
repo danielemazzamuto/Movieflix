@@ -9,7 +9,10 @@
       <div class="hero">
         <div class="navbar">
           <div class="logo">MOVIEFLIX</div>
-          <div class="user-icon">User Icon</div>
+          <div @mouseover="hoverStateProfileIcon = true" @mouseleave="hoverStateProfileIcon = false" class="user-icon">
+            <img src="../assets/profile.jpg" alt="">
+            <NuxtLink class="logoutButton" v-if="hoverStateProfileIcon" to="/">Logout</NuxtLink>
+          </div>
         </div>
         <div class="gradient-overlay-top"></div>
          <img class="hero-image" :src="`https://www.themoviedb.org/t/p/w1920_and_h1080_multi_faces${movies.hero.poster_path}`" alt="Hero Image">
@@ -45,11 +48,16 @@ const movies = ref({
   new: data.value.results.slice(12, 18),
 })
 
+const hoverStateProfileIcon = ref(false);
 const hoverState = ref(Array(data.value.length).fill(false));
 
 function toggleHover(index, state) {
   hoverState.value[index] = state;
 }
+
+onMounted(() => {
+  localStorage.setItem('loggedIn', JSON.stringify(true))
+})
 </script>
 
 <style scoped>
@@ -161,7 +169,25 @@ function toggleHover(index, state) {
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-
+.user-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-icon img{
+  width: 100%;
+  border-radius: 4px;
+}
+.logoutButton {
+  color: #000;
+  text-shadow: 0 0 3px #fff;
+  text-decoration: none;
+  padding-top: 0.4rem;
+  /* margin-left: -9px; */
+  font-size: 1.1rem;
+}
 
 @media screen and (max-width: 800px) {
   .hero {
