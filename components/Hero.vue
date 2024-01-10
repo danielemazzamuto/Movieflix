@@ -29,9 +29,6 @@ defineProps({
   customLogo: Boolean,
 })
 
-onMounted(() => {
-  localStorage.removeItem('loggedIn')
-})
 </script>
 
 <style scoped>

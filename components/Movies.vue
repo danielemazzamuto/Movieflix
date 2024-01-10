@@ -11,7 +11,7 @@
           <div class="logo">MOVIEFLIX</div>
           <div @mouseover="hoverStateProfileIcon = true" @mouseleave="hoverStateProfileIcon = false" class="user-icon">
             <img src="../assets/profile.jpg" alt="">
-            <NuxtLink class="logoutButton" v-if="hoverStateProfileIcon" to="/">Logout</NuxtLink>
+            <NuxtLink class="logoutButton" v-if="hoverStateProfileIcon" @click="logout">Logout</NuxtLink>
           </div>
         </div>
         <div class="gradient-overlay-top"></div>
@@ -39,6 +39,8 @@
 </template>
 
 <script setup>
+const loggedIn = useCookie('loggedIn')
+
 const {data} = await useFetchMovies();
 
 const movies = ref({
@@ -55,9 +57,10 @@ function toggleHover(index, state) {
   hoverState.value[index] = state;
 }
 
-onMounted(() => {
-  localStorage.setItem('loggedIn', JSON.stringify(true))
-})
+const logout = () => {
+  loggedIn.value = false;
+  navigateTo('/')
+}
 </script>
 
 <style scoped>
@@ -179,6 +182,7 @@ onMounted(() => {
 .user-icon img{
   width: 100%;
   border-radius: 4px;
+  cursor: pointer;
 }
 .logoutButton {
   color: #000;
@@ -187,6 +191,7 @@ onMounted(() => {
   padding-top: 0.4rem;
   /* margin-left: -9px; */
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

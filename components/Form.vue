@@ -25,6 +25,7 @@ defineProps({
   homepageLogo: Boolean,
   customLogo: Boolean,
 })
+const loggedIn = useCookie('loggedIn')
 
 const user = ref({
   email: "",
@@ -46,6 +47,7 @@ const submit = () => {
       email: "",
       password: ""
     };
+    loggedIn.value = true;
     navigateTo("/browse");
   } else {
     errorMessage.value = "";

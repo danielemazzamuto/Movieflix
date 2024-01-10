@@ -1,41 +1,41 @@
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-regular.ttf") format("truetype");
+  src: url("fonts/netflixsans-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-black.ttf") format("truetype");
+  src: url("fonts/netflixsans-black.ttf") format("truetype");
   font-weight: bolder;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-bold.ttf") format("truetype");
+  src: url("fonts/netflixsans-bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-medium.ttf") format("truetype");
+  src: url("fonts/netflixsans-medium.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-light.ttf") format("truetype");
+  src: url("fonts/netflixsans-light.ttf") format("truetype");
   font-weight: lighter;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NetflixSans";
-  src: url("../fonts/netflixsans-thin.ttf") format("truetype");
+  src: url("fonts/netflixsans-thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
