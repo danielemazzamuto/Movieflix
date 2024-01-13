@@ -18,7 +18,7 @@
             </div>
             <div class="card-movie-info-year">{{ `${movie.release_date.split("-")[0]}` }}</div>
             <div v-for="genre in movie.genre_ids" :key="genre" class="card-movie-info-genre">
-              <p>{{ genre }}</p>
+              <p>{{ genres[genre] }}</p>
             </div>
           </div>
         </div>
@@ -29,6 +29,17 @@
 
 <script setup>
 const props = defineProps(['movies', 'hoverState', 'toggleHover'])
+
+const genres = ref({});
+
+onMounted(async () => {
+  await Promise.all(
+    props.movies.popular.flatMap(movie => movie.genre_ids).map(async genreId => {
+      const genreName = await useFetchGenreName(genreId);
+      genres.value[genreId] = genreName;
+    })
+  );
+});
 
 </script>
 
@@ -44,18 +55,21 @@ const props = defineProps(['movies', 'hoverState', 'toggleHover'])
   justify-content: space-between;
   flex-wrap: no-wrap;
   gap: 5px;
+  position: relative;
 }
 .card {
   z-index: 1;
+  position: relative;
   flex: 1 1 150px;
-  min-height: 8.5rem;
-  /* border: 1px solid #ccc; */
+  min-height: 6rem;
   margin: 10px;
   transition: flex 0.3s, min-height 0.5s;
 }
 .card:hover {
   flex: 1 1 250px;
-  min-height: 9.5rem;
+  min-height: 8.5rem;
+  z-index: 2;
+  position: relative;
 }
 .card-content {
   position: relative;
@@ -68,9 +82,9 @@ const props = defineProps(['movies', 'hoverState', 'toggleHover'])
   bottom: 20%;
   left: 1rem;
   width: 60%;
-  font-size: 1em;
+  font-size: 1.3em;
   max-height: 80%;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 2px 2px 3px black;
 }
 
 .card-movie-info-buttons {
@@ -101,5 +115,20 @@ const props = defineProps(['movies', 'hoverState', 'toggleHover'])
 .card-movie-info-genre {
   padding-left: 1.2rem;
   padding-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .cards-container-popular {
+    flex-wrap: wrap;
+  }
+  .card-title {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .card-title {
+    font-size: 1.1em;
+  }
 }
 </style>

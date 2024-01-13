@@ -6,5 +6,10 @@ export default defineNuxtConfig({
     head: {
       link: [{ rel: "stylesheet", href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'}]
     }
-  }
+  },
+  runtimeConfig: {
+    public: {
+      API_BASE_URL: process.env.API_BASE_URL
+    }
+},
 })

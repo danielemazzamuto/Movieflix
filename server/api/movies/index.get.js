@@ -1,5 +1,7 @@
-export default defineEventHandler(() => {
-  const data = $fetch('https://api.themoviedb.org/3/discover/movie?api_key=6e86b21c7589e905a689bbf6ad1bb079');
+export default defineEventHandler(async () => {
+  const config = useRuntimeConfig()
+    const API_BASE_URL = config.public.API_BASE_URL;
+  const data = await $fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_BASE_URL}`);
 
   return data ;
 })

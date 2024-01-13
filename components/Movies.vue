@@ -44,7 +44,7 @@ const loggedIn = useCookie('loggedIn')
 const {data} = await useFetchMovies();
 
 const movies = ref({
-  hero: data.value.results[4],
+  hero: data.value.results[7],
   popular: data.value.results.slice(0, 6),
   voted: data.value.results.slice(6, 12),
   new: data.value.results.slice(12, 18),
@@ -167,9 +167,10 @@ const logout = () => {
   position: absolute;
   width: 100%;
   z-index: 2;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255);
   margin-top: -5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  overflow-x: hidden;
+  background-color: #000;
 }
 
 .user-icon {
